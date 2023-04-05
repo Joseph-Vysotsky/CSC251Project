@@ -76,7 +76,7 @@ public class Policy {
    public double calcPolicyPrice() {
       double price = 600;
       if (this.phAge > 50) price += 75;
-      if (this.phSmokingStatus == "smoker") price += 100;
+      if (this.phSmokingStatus.equals("smoker")) price += 100;
       double bmi = this.calcBMI();
       if (bmi > 35) price += (bmi - 35) * 20;
       return price;
