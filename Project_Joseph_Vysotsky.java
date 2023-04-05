@@ -44,9 +44,9 @@ public class Project_Joseph_Vysotsky {
             policies.add(policy);
          }
          
-         
+         int numSmoker = 0;
          for(Policy policy : policies) {
-            
+            if (policy.getPolicyholderSmokingStatus().equalsIgnoreCase("smoker")) numSmoker++;
             
             System.out.println("");
             System.out.printf("Policy Number: %d\n",                 policy.getPolicyNumber());
@@ -60,7 +60,9 @@ public class Project_Joseph_Vysotsky {
             System.out.printf("Policyholder's BMI: %,.2f\n",         policy.calcBMI());
             System.out.printf("Policy Price: $%,.2f\n",              policy.calcPolicyPrice());
          }
-         
+         System.out.println();
+         System.out.printf("The number of policies with a smoker is: %d\n", numSmoker);
+         System.out.printf("The number of policies with a non-smoker is: %d\n", policies.size() - numSmoker);
       } catch (FileNotFoundException e) {}
    }
 }
