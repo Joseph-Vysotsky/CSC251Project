@@ -42,4 +42,13 @@ public class Policy {
       if (bmi > 35) price += (bmi - 35) * 20;
       return price;
    }
+   
+   public String toString() {
+      String s = "";
+      s += "Policy Number: " + policyNumber + "\n";
+      s += "Provider Name: " + providerName + "\n";
+      s += holder;
+      s += "Policy Price: " + String.format("$%,.2f\n", this.calcPolicyPrice());
+      return s;
+   }
 }
