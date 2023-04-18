@@ -40,24 +40,25 @@ public class Project_Joseph_Vysotsky {
             double phWeight = policyInformation.nextDouble();
             if (policyInformation.hasNextLine()) policyInformation.nextLine();
             
-            Policy policy = new Policy(policyNumber, providerName, phFirst, phLast, phAge, phSmokingStatus, phHeight, phWeight);
+            PolicyHolder holder = new PolicyHolder(phFirst, phLast, phAge, phSmokingStatus, phHeight, phWeight);
+            Policy policy = new Policy(policyNumber, providerName, holder);
             policies.add(policy);
          }
          
          int numSmoker = 0;
          for(Policy policy : policies) {
-            if (policy.getPolicyholderSmokingStatus().equalsIgnoreCase("smoker")) numSmoker++;
+            if (policy.getPolicyHolder().getSmokingStatus().equalsIgnoreCase("smoker")) numSmoker++;
             
             System.out.println("");
             System.out.printf("Policy Number: %d\n",                 policy.getPolicyNumber());
             System.out.printf("Provider Name: %s\n",                 policy.getProviderName());
-            System.out.printf("Policyholder's First Name: %s\n",     policy.getPolicyholderFirstName());
-            System.out.printf("Policyholder's Last Name: %s\n",      policy.getPolicyholderLastName());
-            System.out.printf("Policyholder's Age: %d\n",            policy.getPolicyholderAge());
-            System.out.printf("Policyholder's Smoking Status (smoker/non-smoker): %s\n", policy.getPolicyholderSmokingStatus());
-            System.out.printf("Policyholder's Height: %,.1f\n",      policy.getPolicyholderHeight());
-            System.out.printf("Policyholder's Weight: %,.1f\n",      policy.getPolicyholderWeight());
-            System.out.printf("Policyholder's BMI: %,.2f\n",         policy.calcBMI());
+            System.out.printf("Policyholder's First Name: %s\n",     policy.getPolicyHolder().getFirstName());
+            System.out.printf("Policyholder's Last Name: %s\n",      policy.getPolicyHolder().getLastName());
+            System.out.printf("Policyholder's Age: %d\n",            policy.getPolicyHolder().getAge());
+            System.out.printf("Policyholder's Smoking Status: %s\n", policy.getPolicyHolder().getSmokingStatus());
+            System.out.printf("Policyholder's Height: %,.1f\n",      policy.getPolicyHolder().getHeight());
+            System.out.printf("Policyholder's Weight: %,.1f\n",      policy.getPolicyHolder().getWeight());
+            System.out.printf("Policyholder's BMI: %,.2f\n",         policy.getPolicyHolder().calcBMI());
             System.out.printf("Policy Price: $%,.2f\n",              policy.calcPolicyPrice());
          }
          System.out.println();
