@@ -2,19 +2,26 @@ public class Policy {
    private int policyNumber;
    private String providerName;
    private PolicyHolder holder;
+   private static int numObjects = 0;
    
    //No-arg constructor
    public Policy() {
       this.policyNumber    = 0;
       this.providerName    = "";
       this.holder          = new PolicyHolder();
+      numObjects += 1;
    }
    
    public Policy(int policyNumber, String providerName, PolicyHolder holder) {
       this.policyNumber    = policyNumber;
       this.providerName    = providerName;
       this.holder          = new PolicyHolder(holder);
+      numObjects += 1;
    }
+   
+   //Static methods
+   /** @return the number of Policy objects created */
+   public static int getNumObjects() { return numObjects; }
    
    //Accessor methods
    /** @return the policy number */
