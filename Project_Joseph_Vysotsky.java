@@ -50,17 +50,10 @@ public class Project_Joseph_Vysotsky {
             if (policy.getPolicyHolder().getSmokingStatus().equalsIgnoreCase("smoker")) numSmoker++;
             
             System.out.println("");
-            System.out.printf("Policy Number: %d\n",                 policy.getPolicyNumber());
-            System.out.printf("Provider Name: %s\n",                 policy.getProviderName());
-            System.out.printf("Policyholder's First Name: %s\n",     policy.getPolicyHolder().getFirstName());
-            System.out.printf("Policyholder's Last Name: %s\n",      policy.getPolicyHolder().getLastName());
-            System.out.printf("Policyholder's Age: %d\n",            policy.getPolicyHolder().getAge());
-            System.out.printf("Policyholder's Smoking Status: %s\n", policy.getPolicyHolder().getSmokingStatus());
-            System.out.printf("Policyholder's Height: %,.1f\n",      policy.getPolicyHolder().getHeight());
-            System.out.printf("Policyholder's Weight: %,.1f\n",      policy.getPolicyHolder().getWeight());
-            System.out.printf("Policyholder's BMI: %,.2f\n",         policy.getPolicyHolder().calcBMI());
-            System.out.printf("Policy Price: $%,.2f\n",              policy.calcPolicyPrice());
+            System.out.print(policy);
          }
+         System.out.println();
+         System.out.printf("There were %d Policy objects created.\n", Policy.getNumObjects());
          System.out.println();
          System.out.printf("The number of policies with a smoker is: %d\n", numSmoker);
          System.out.printf("The number of policies with a non-smoker is: %d\n", policies.size() - numSmoker);
