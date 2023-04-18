@@ -68,4 +68,16 @@ public class PolicyHolder {
    public double calcBMI() {
       return (this.weight * 703) / (this.height * this.height);
    }
+   
+   public String toString() {
+      String s = "";
+      s += "Policyholder's First Name: "     + this.firstName + "\n";
+      s += "Policyholder's Last Name: "      + this.lastName + "\n";
+      s += "Policyholder's Age: "            + this.age + "\n";
+      s += "Policyholder's Smoking Status: " + this.smokingStatus + "\n";
+      s += "Policyholder's Height: "         + String.format("%,.1f\n", this.height);
+      s += "Policyholder's Weight: "         + String.format("%,.1f\n", this.weight);
+      s += "Policyholder's BMI: "            + String.format("%,.2f\n", this.calcBMI());
+      return s;
+   }
 }
